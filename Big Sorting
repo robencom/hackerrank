@@ -1,0 +1,27 @@
+<?php
+
+$handle = fopen ("php://stdin","r");
+fscanf($handle,"%d",$n);
+$unsorted = array();
+for($unsorted_i = 0; $unsorted_i < $n; $unsorted_i++){
+   fscanf($handle,"%s",$unsorted[]);
+}
+
+usort($unsorted, function($a, $b) {
+    $strlenA = strlen($a);
+    $strlenB = strlen($b);
+    if ($strlenA != $strlenB) {
+        return $strlenA - $strlenB;
+    } else {
+        return strcoll($a, $b); 
+    }   
+});
+
+//sort($unsorted);
+
+foreach($unsorted as $num)
+{
+    echo "$num" . PHP_EOL;
+}
+
+?>
